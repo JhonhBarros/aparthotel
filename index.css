@@ -109,7 +109,8 @@ html {
     margin-bottom: 3rem;
 }
 
-.btn button{
+.btn button,
+.btn a.reserva {
     width: 360px;
     height: 60px;
     cursor: pointer;
@@ -120,13 +121,20 @@ html {
     margin-top: 5rem;
     color: #4267b2;
     transition: all 400ms ease-in;
+    display: flex;          /* pra centralizar texto */
+    align-items: center; 
+    justify-content: center;
+    text-decoration: none;  /* tira sublinhado do link */
+    font-size: 2rem;
 }
 
-.btn button:hover{
+.btn button:hover,
+.btn a.reserva:hover {
     border: 1px solid #4267b2;
     background-color: transparent;
     color: #4267b2;
 }
+
 
 .sobre-nos{
     background-color:#77c5d6 ;

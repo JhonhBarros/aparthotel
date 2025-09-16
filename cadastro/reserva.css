@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.title,
+.subtitle {
+    font-family: "Oswald", sans-serif;
+
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #bbe1e9; 
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center; /* centraliza a .navbar */
+    align-items: center;
+    z-index: 500;
+}
+
+
+.header .navbar {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+   display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+    justify-content: space-between;
+    margin-left: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.logo h3 {
+    font-size: 18px;
+    color: #000;
+    -webkit-text-stroke: 0.5px #DAA520;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    margin: 0; /* evita que fique "descendo" */
+}
+
+/* MENU */
+.navigation {
+    display: flex;
+    gap: 2rem; /* espaço entre os links */
+    align-items: center;
+    justify-content: space-between;
+    font-weight:500;
+}
+
+.navigation .link {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #4267b2;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+}
+
+.navigation .link:hover {
+    border-bottom: 2px solid #4267b2;
+    color: #4267b2;
+}
+
+/* ÍCONES (ex: redes sociais, carrinho, etc.) */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* controla o espaço entre os ícones */
+}
+
+/* Estilo de cada ícone */
+.controls .icon {
+    font-size: 20px;
+    color: #4267b2;
+    border: 1.8px solid #234383;
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.controls .icon:hover {
+    background-color: #4267b2;
+    color: #fff;
+    border: 1.8px solid #4267b2; /* efeito dourado */
+}
+
+#menu {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(#0001, #0001), url(../img/Backgraund.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.4rem;
+    align-items: center;
+    padding-top: 70px;
+}
+
+.home .items .item {
+    width: 100%;
+    grid-column: span 2;
+
+}
+
+.home .items .item .content .title {
+    font-size: 44px;
+    font-weight: 500;
+    color: #fff;
+
+}
+
+.home .items .item .content .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0rem;
+
+}
+
+.home .items .item .content .desc p {
+    font-size: 14px;
+    color: #eee;
+
+}
+
+.home .items .item .content .buttons {
+    width: 100%;
+}
+
+.home .items .item .content .btn {
+    padding: 0.9rem 2.4rem;
+    border: 2px solid #fff7;
+    background-color: #000a;
+    font-size: 14px;
+    line-height: 14px;
+    color: #eee;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.home .items .item .content .btn:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+
+
+.home .items .item .box {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 2px 0px 20px #aaa;
+    border-radius: 10px;
+}
+
+.home .items .item .box .line {
+    width: 100%;
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.home .items .item .box .line label {
+    font-size: 15px;
+    font-weight: 400;
+    color: #333;
+}
+
+.home .items .item .box .line .input {
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 400;
+    color: #888;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid #aaa;
+    outline: none;
+    transition: all 1s;
+}
+
+.home .items .item .box .line .input:hover {
+    border: 1px solid #bbe1e9;
+    color: #222;
+}
+
+.home .items .item .box .btn {
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: 400;
+    color: #fff;
+    padding: 0.75rem 0.5rem;
+    border: 2px solid #eee;
+    background-color: #4267b2;
+    outline: none;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.home .items .item .box .btn:hover {
+    border-color: #bbe1e9;
+    background-color: #bbe1e9;
+
+}
+
+
+.heading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0rem;
+    padding-top: 2rem;
+}
+
+.heading h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #111;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem 0rem;
+}
+
+.heading h1 span {
+    font-size: 44px;
+    line-height: 62px;
+
+}
+
+.heading .subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #cf4624;
+}
+
+.heading .desc {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -3rem;
+}
+
+.heading .desc p {
+    font-size: 16.5px;
+    color: #444;
+}
