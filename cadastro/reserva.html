@@ -55,44 +55,41 @@
                     <div class="box">
                         <h1 class="title">Escolha seu quarto</h1>
 
-                        <form action="" class="form">
-                            <div class="line">
-                                <label for="">Check in:</label>
-                                <input type="date" name="in" id="in" class="input">
-                            </div>
-                            <div class="line">
-                                <label for="">Check out:</label>
-                                <input type="date" name="out" id="out" class="input">
-                            </div>
+                        <form id="reservaForm" class="form">
+    <div class="line">
+        <label for="checkin">Check in:</label>
+        <input type="date" id="checkin" class="input" required>
+    </div>
+    <div class="line">
+        <label for="checkout">Check out:</label>
+        <input type="date" id="checkout" class="input" required>
+    </div>
+    <div class="line">
+        <label for="guests">Hóspedes:</label>
+        <select id="guests" class="input">
+            <option value="1">1 Adulto</option>
+            <option value="2">2 Adultos</option>
+            <option value="3">2 Adultos + 1 criança</option>
+            <option value="4">2 Adultos + 2 crianças</option>
+        </select>
+    </div>
+    <div class="line">
+        <label for="rooms">Quartos:</label>
+        <select id="rooms" class="input">
+            <option value="1">1 Quarto</option>
+            <option value="2">2 Quartos</option>
+            <option value="3">3 Quartos</option>
+            <option value="4">4 Quartos</option>
+        </select>
+    </div>
+    <div class="line">
+        <button type="submit" class="btn">Verificar disponibilidade</button>
+    </div>
+</form>
 
-                            <div class="line">
-                                <label for="">Hóspedes:</label>
-                                <select name="guests" id="Guests" class="input">
-                                    <option value="1">1 Adulto</option>
-                                    <option value="2">2 Adultos</option>
-                                    <option value="3">2 Adultos + 1 criança</option>
-                                    <option value="4">2 Adultos + 2 criança</option>
-                                    <option value="5">4 Adultos + 2 criança</option>
-                                    <option value="6">4 Adultos + 3 criança</option>
-                                    <option value="7">4 Adultos + 4 criança</option>
-                                </select>
-                            </div>
-                            <div class="line">
-                                <label for="">Hóspedes:</label>
-                                <select name="guests" id="Guests" class="input">
-                                    <option value="1">1 Quarto</option>
-                                    <option value="2">2 Quartos</option>
-                                    <option value="3">3 Quartos</option>
-                                    <option value="4">4 Quartos</option>
-                                    <option value="5">1 Quarto + 1 criança Quarto</option>
-                                    <option value="5">2 Quarto + 2 criança Quarto</option>
-                                    <option value="5">1 Quarto + 2 criança Quarto</option>
-                                </select>
-                            </div>
-                            <div class="line">
-                                <button class="btn">verificação de disponibilidade</button>
-                            </div>
-                        </form>
+<!-- Resultado aparece aqui -->
+<div id="resultado"></div>
+
 
                     </div>
                 </div>
@@ -110,6 +107,40 @@
         })
 
     </script>
+    <script>
+    // Simulação de disponibilidade do hotel
+    const maxQuartos = 3; // total de quartos disponíveis no hotel
+
+    document.getElementById("reservaForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const checkin = new Date(document.getElementById("checkin").value);
+        const checkout = new Date(document.getElementById("checkout").value);
+        const rooms = parseInt(document.getElementById("rooms").value);
+
+        const resultado = document.getElementById("resultado");
+
+        // Validação de datas
+        if (checkout <= checkin) {
+            resultado.innerHTML = "<p style='color:red;'>⚠️ Data de check-out deve ser depois do check-in.</p>";
+            return;
+        }
+
+        // Verificar disponibilidade
+        if (rooms > maxQuartos) {
+            resultado.innerHTML = "<p style='color:red;'>❌ Não temos quartos suficientes disponíveis.</p>";
+        } else {
+            const dias = (checkout - checkin) / (1000 * 60 * 60 * 24);
+            const precoNoite = 200; // valor fictício por quarto/noite
+            const total = dias * precoNoite * rooms;
+
+            resultado.innerHTML = `<p style="color:green;">✅ Quartos disponíveis!<br>
+                Estadia de <b>${dias}</b> noites.<br>
+                Valor total estimado: <b>R$ ${total}</b></p>`;
+        }
+    });
+</script>
+
 </body>
 
 </html>

@@ -61,10 +61,10 @@
         <div>
             <img src="./img/Quarto1.jpg" alt="">
             <div class="info">
-                <h3>6 Camas</h3>
+                <h3>3 Camas</h3>
                 <h4>0 Adultos <span>R$00,00</span></h4>
                 <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
         <div>
@@ -73,7 +73,7 @@
                 <h3>2 camas</h3>
                 <h4>0 Adultos <span>R$00,00</span></h4>
                 <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
         <div>
@@ -82,7 +82,7 @@
                 <h3>2 camas</h3>
                 <h4>0 Adultos <span>R$00,00</span></h4>
                 <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
         <div>
@@ -91,16 +91,16 @@
                 <h3>2 camas</h3>
                 <h4>0 Adultos <span>R$00,00</span></h4>
                 <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
         <div>
             <img src="./img/Quarto1.jpg" alt="">
             <div class="info">
-                <h3>6 camas</h3>
+                <h3>3 camas</h3>
                 <h4>0 Adults <span>R$00,00</span></h4>
                 <h4>0 Adult 0 criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
          <div>
@@ -109,7 +109,7 @@
                 <h3>2 camas</h3>
                 <h4>0 Adultos <span>R$00,00</span></h4>
                 <h4>0 Adultos 0 criança <span>R$00,00</span></h4>
-                <button class="book" onclick="location.href='cadastro/reserva.html'">Reservar um quarto</button>
+                <button class="book">Reservar um quarto</button>
             </div>
         </div>
     </div>
@@ -135,6 +135,25 @@
 <footer>
     <h4>Desenvolvido por -> JhonhTech </h4>
 </footer>
+<script>
+  // Botões de reservar
+  const buttons = document.querySelectorAll(".book");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      window.location.href = "cadastro/reserva.html"; // redireciona sempre
+    });
+  });
 
+  // Menu responsivo (abre/fecha no mobile)
+  const menuBtn = document.createElement("div");
+  menuBtn.innerHTML = '<i class="bi bi-list"></i>';
+  menuBtn.classList.add("menu-btn");
+  document.querySelector("header nav").prepend(menuBtn);
+
+  const navMenu = document.querySelector(".list-menu");
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
 </body>
 </html>
