@@ -1,5 +1,5 @@
 /* ================= RESET ================= */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -33,25 +33,25 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
 }
 
-.logo h3{
+.logo h3 {
     color: #000;
     font-size: 1.6rem;
     -webkit-text-stroke: 0.5px #DAA520;
 }
 
-.logo img{
+.logo img {
     width: 40px;
     height: 40px;
 }
 
-/* ====== MENU E ÍCONES ====== */
+/* ================= MENU E ÍCONES ================= */
 .list-menu {
     display: flex;
     gap: 20px;
@@ -63,7 +63,7 @@ body {
     text-decoration: none;
     color: #4267b2;
     font-weight: 500;
-    font-size: 1.8rem; /* tamanho dos menus */
+    font-size: 1.8rem;
     padding: 0.5rem 1rem;
     transition: 0.3s;
 }
@@ -81,9 +81,16 @@ body {
 /* Ícone person separado */
 .list-menu a i.bi-person-circle {
     font-size: 2.6rem;
+    color: #4267b2 !important;
 }
 
-/* ====== RESPONSIVIDADE ====== */
+/* ================= RESPONSIVIDADE MENU ================= */
+.menu-btn {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .menu-btn {
         display: block;
@@ -92,30 +99,22 @@ body {
     }
 
     .list-menu {
+        display: none;
+        flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 220px;
-        padding: 20px;
-        gap: 15px;
-        display: none; /* escondido por padrão */
-        box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
-        font-size: 1.8rem; /* mantém tamanho dos links */
+        right: 10px;
+        background: #fff;
+        padding: 15px;
+        gap: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        width: 200px;
+        font-size: 1.8rem;
     }
 
     .list-menu.active {
         display: flex;
     }
-}
-
-
-.menu-btn {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
 }
 
 /* ================= HERO / PRIMEIRA SEÇÃO ================= */
@@ -133,7 +132,7 @@ body {
     padding-top: 60px; /* para compensar header fixo */
 }
 
-.frist .conteudo-principal{
+.frist .conteudo-principal {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,7 +140,7 @@ body {
     text-align: center;
 }
 
-.frist h1{
+.frist h1 {
     color: white;
     font-size: 5.5rem;
     text-transform: uppercase;
@@ -149,7 +148,7 @@ body {
     -webkit-text-stroke: 0.5px #afafaf;
 }
 
-.frist h2{
+.frist h2 {
     color: white;
     font-size: 3rem;
     font-weight: 600;
@@ -184,8 +183,8 @@ body {
 }
 
 /* ================= SOBRE NÓS ================= */
-.sobre-nos{
-    background-color:#77c5d6;
+.sobre-nos {
+    background-color: #77c5d6;
     width: 100%;
     padding: 5rem 20px;
     color: whitesmoke;
@@ -194,14 +193,14 @@ body {
     align-items: center;
 }
 
-.main{
+.main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
 }
 
-.contentsobre{
+.contentsobre {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,16 +208,16 @@ body {
     text-align: center;
 }
 
-.contentsobre h2{
+.contentsobre h2 {
     font-size: 4rem;
     margin-bottom: 1rem;
 }
 
-.contentsobre p{
+.contentsobre p {
     font-size: 1.8rem;
 }
 
-.sobre-nos img{
+.sobre-nos img {
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -226,7 +225,7 @@ body {
 }
 
 /* ================= QUARTOS ================= */
-.quartos{
+.quartos {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -236,21 +235,21 @@ body {
     padding: 4rem 0;
 }
 
-.quartos h2{
+.quartos h2 {
     font-size: 4rem;
     color: whitesmoke;
     text-transform: uppercase;
     margin-bottom: 2rem;
 }
 
-.itens-quarto{
+.itens-quarto {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.itens-quarto div{
+.itens-quarto div {
     background-color: whitesmoke;
     border-radius: 10px;
     overflow: hidden;
@@ -260,39 +259,39 @@ body {
     transition: transform 0.3s;
 }
 
-.itens-quarto div:hover{
+.itens-quarto div:hover {
     transform: translateY(-5px);
 }
 
-.itens-quarto img{
+.itens-quarto img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.itens-quarto .info{
+.itens-quarto .info {
     padding: 1rem;
     text-align: center;
 }
 
-.itens-quarto .info h3{
+.itens-quarto .info h3 {
     font-size: 1.8rem;
     text-transform: uppercase;
     margin-bottom: 1rem;
     text-decoration: underline;
 }
 
-.itens-quarto .info h4{
+.itens-quarto .info h4 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
 }
 
-.itens-quarto .info h4 span{
+.itens-quarto .info h4 span {
     color: #4267b2;
     font-size: 1.6rem;
 }
 
-.itens-quarto .info .book{
+.itens-quarto .info .book {
     padding: 10px 20px;
     font-size: 1rem;
     border-radius: 8px;
@@ -303,12 +302,12 @@ body {
     transition: 0.3s;
 }
 
-.itens-quarto .info .book:hover{
+.itens-quarto .info .book:hover {
     background: #005fcc;
 }
 
 /* ================= CONTATOS ================= */
-.contacts{
+.contacts {
     width: 100%;
     background-color: #77c5d6;
     display: flex;
@@ -319,12 +318,12 @@ body {
     padding: 4rem 2rem;
 }
 
-.contacts h3{
+.contacts h3 {
     font-size: 4rem;
     margin-bottom: 2rem;
 }
 
-.contacts-secion{
+.contacts-secion {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -332,60 +331,47 @@ body {
     gap: 2rem;
 }
 
-.contacts-secion div{
+.contacts-secion div {
     display: flex;
     align-items: center;
     gap: 1rem;
     cursor: pointer;
 }
 
-.contacts-secion div:hover{
+.contacts-secion div:hover {
     color: #4267b2;
 }
 
 /* ================= IMAGENS ================= */
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* ================= RESPONSIVIDADE ================= */
-@media (max-width: 1024px){
-    .contentsobre h2{font-size: 3rem;}
-    .contentsobre p{font-size: 1.5rem;}
-    .frist h1{font-size: 4rem;}
-    .frist h2{font-size: 2.2rem;}
-    .btn a.reserva{width: 80%;}
+@media (max-width: 1024px) {
+    .contentsobre h2 { font-size: 3rem; }
+    .contentsobre p { font-size: 1.5rem; }
+    .frist h1 { font-size: 4rem; }
+    .frist h2 { font-size: 2.2rem; }
+    .btn a.reserva { width: 80%; }
 }
 
-@media (max-width: 768px){
-    .frist h1{font-size: 3rem;}
-    .frist h2{font-size: 1.8rem;}
-    .contentsobre h2{font-size: 2.5rem;}
-    .contentsobre p{font-size: 1.3rem;}
-    .list-menu{
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: #fff;
-        padding: 15px;
-        gap: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        width: 200px;
-    }
-    .list-menu.active{display: flex;}
-    .menu-btn{display: block;}
-    .book{width: 100%; font-size: 1.1rem;}
+@media (max-width: 768px) {
+    .frist h1 { font-size: 3rem; }
+    .frist h2 { font-size: 1.8rem; }
+    .contentsobre h2 { font-size: 2.5rem; }
+    .contentsobre p { font-size: 1.3rem; }
+    .list-menu { width: 200px; }
+    .book { width: 100%; font-size: 1.1rem; }
 }
 
-@media (max-width: 480px){
-    .frist h1{font-size: 2rem;}
-    .frist h2{font-size: 1.2rem;}
-    .contentsobre h2{font-size: 2rem;}
-    .contentsobre p{font-size: 1rem; width: 90%;}
-    .contacts h3{font-size: 2rem;}
-    .contacts-secion{flex-direction: column; gap: 1rem;}
-    .book{font-size: 1rem;}
+@media (max-width: 480px) {
+    .frist h1 { font-size: 2rem; }
+    .frist h2 { font-size: 1.2rem; }
+    .contentsobre h2 { font-size: 2rem; }
+    .contentsobre p { font-size: 1rem; width: 90%; }
+    .contacts h3 { font-size: 2rem; }
+    .contacts-secion { flex-direction: column; gap: 1rem; }
+    .book { font-size: 1rem; }
 }
