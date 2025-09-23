@@ -404,3 +404,15 @@ img {
 #whatsapp-button:hover {
   background-color: #128C7E; /* Verde mais escuro (hover oficial) */
 }
+@media (max-width: 600px) {
+  #whatsapp-button {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    right: 15px;
+  }
+  #whatsapp-button img {
+    width: 28px;
+    height: 28px;
+  }
+}
