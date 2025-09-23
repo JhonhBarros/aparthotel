@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  background-image: url('./img/Backgraund.jpg');
+  background-image: url('./img/backgraund3.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body {
 .content {
   width: 100%;
   height: 60px;
-  background-color: #bbe1e9;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,12 +61,17 @@ nav {
 }
 
 .list-menu a:hover {
-  color: #0077aa;
+  color: #DAA520;
 }
 
 .list-menu a i.bi-person-circle {
     font-size: 2.6rem;
-    color: #4267b2 !important;
+    color: #000000 !important;
+    transition: 0.3s;
+}
+
+.list-menu a i.bi-person-circle:hover {
+    color: #DAA520 !important;
 }
 
 .menu-btn {
@@ -158,7 +163,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #bbe1e9;
+  background-color: #edfcff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,7 +215,7 @@ nav {
     right: -100%;
     width: 70%;
     height: 100vh;
-    background-color: #bbe1e9;
+    background-color: #ffffff;
     flex-direction: column;
     align-items: center;
     justify-content: center;
