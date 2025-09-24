@@ -1,167 +1,954 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="ApartHotel IP - Conforto e aconchego em Belém, Pará. Reserve já seu quarto!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/png" href="logo3.png">
-    <title>ApartHotel</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+    <title>ApartHotel IP - Seu Conforto em Belém</title>
 </head>
+
 <body>
-    <header class="content">
-        <div class="logo">
-            <img src="./img/logo3.png" alt="">
-            <h3>ApartHotel IP</h3>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="./img/logo3.png" alt="ApartHotel IP Logo">
+                <span class="logo-text">ApartHotel IP</span>
+                <img src="./img/2.png" alt="" class="reg" >
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#rooms" class="nav-link">Quartos</a></li>
+                    <li><a href="#explore" class="nav-link">Explorar</a></li>
+                    <li><a href="#highlights" class="nav-link">Destaques</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+
+                    <div class="nav-social">
+                        <a href="https://wa.me/5591982327122" target="_blank" class="social-link" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="mailto:ipaoarthotel@gmail.com" class="social-link" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                        <a href="cadastro/cad.html" class="social-link" aria-label="Área do Cliente">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                    </div>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </nav>
         </div>
-        <nav>
-            <ul class="list-menu">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="turi.html">Pontos Turísticos</a></li>
-    <li><a href="../aparthotel/more.html">Mais</a></li>
-    <li><a href="https://wa.me/5591982327122" target="_blank"><i class="bi bi-whatsapp"></i></a></li>
-    <li><a href="ipaoarthotel@gmail.com"><i class="bi bi-envelope-at"></i></a></li>
-    <a href="cadastro/cad.html" style="color:#4267b2;"><i class="bi bi-person-circle"></i></a>
-
-
-</ul>
-
-        </nav>
     </header>
-    <section class="frist">
-        <div class="conteudo-principal">
-            <h1>Achou o melhor hotel para você!</h1>
-            <h2>Não perca essa oportunidade.
-                </h2>
-                <div class="btn">
-  <a href="../aparthotel/cadastro/reserva.html" class="reserva">Fazer Reserva</a>
-</div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <!-- Hero Badge -->
+            <div class="hero-badge fade-in-up">
+                <i class="bi bi-geo-alt"></i>
+                Belém • Porta de Entrada da Amazônia
+            </div>
+
+            <section class="hero">
+    <img src="./img/cop30.png" alt="">
+    <div class="hero-overlay">
+        <h1 class="hero-title fade-in-up">ApartHotel IP</h1>
+        <div class="minimal-search fade-in-up">
+            <form class="minimal-search-form" onsubmit="buscarQuartos(event)">
+                <input type="text" class="minimal-search-input" placeholder="Check-in e Check-out" readonly
+                    onclick="expandSearch()">
+                <button type="button" class="minimal-search-button" onclick="scrollToRooms('todos')">
+                    <i class="bi bi-search"></i>
+                    Explorar
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+                <section class="hotel-section">
+  <!-- Carrossel -->
+  <div class="carousel">
+    <div class="controls">
+    </div>
+  </div>
+  <!-- Texto -->
+  <div class="hotel-info">
+  </div>
+</section>
+            <!-- Features Grid -->
+            <div class="features-grid fade-in-up">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-tree"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Eco-Friendly</h3>
+                        <p class="feature-description">Práticas sustentáveis em harmonia com a natureza amazônica</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-geo"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Localização</h3>
+                        <p class="feature-description">Próximo ao centro e pontos turísticos de Belém</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Qualidade</h3>
+                        <p class="feature-description">Conforto moderno com responsabilidade ambiental</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-<section class="quartos" id="quartos">
-    <h2>Quartos</h2>
-    <div class="itens-quarto">
-        <div>
-            <img src="./img/Quarto1.jpg" alt="">
-            <div class="info">
-                <h3>3 Camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-        <div>
-            <img src="./img/Quarto2.jpg" alt="">
-            <div class="info">
-                <h3>2 camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-        <div>
-            <img src="./img/Quarto3.JPG" alt="">
-            <div class="info">
-                <h3>2 camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-        <div>
-            <img src="./img/Quarto4.JPG" alt="">
-            <div class="info">
-                <h3>2 camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-        <div>
-            <img src="./img/Quarto1.jpg" alt="">
-            <div class="info">
-                <h3>3 camas</h3>
-                <h4>0 Adults <span>R$00,00</span></h4>
-                <h4>0 Adult 0 criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-         <div>
-            <img src="./img/Quarto4.JPG" alt="">
-            <div class="info">
-                <h3>2 camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-        <div>
-            <img src="./img/Quarto1.jpg" alt="">
-            <div class="info">
-                <h3>3 Camas</h3>
-                <h4>0 Adultos <span>R$00,00</span></h4>
-                <h4>0 Adultos 0 Criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-         <div>
-            <img src="./img/Quarto1.jpg" alt="">
-            <div class="info">
-                <h3>3 camas</h3>
-                <h4>0 Adults <span>R$00,00</span></h4>
-                <h4>0 Adult 0 criança <span>R$00,00</span></h4>
-                <button class="book">Reservar um quarto</button>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="contacts" id="contacts">
-    <h3>Contatos</h3>
-    <div class="contacts-secion">
-        <div>
-            <i class="bi bi-telephone"></i>
-            <span> (91) 98232-7122</span>
+    <!-- Rooms Section -->
+    <section class="rooms" id="rooms">
+        <div 
+            class="sustainability-badge" 
+            style="margin-top: 4px; background: rgb(42 89 66); color: #fff;">
+            <i class="bi bi-leaf" style="fill: #fff;"></i>
+            Turismo Sustentável • COP 30 Amazônia
         </div>
-        <div>
-            <i class="bi bi-instagram"></i>
-            <span> @ApartHotelIP</span>
+        <div class="section-header">
+            <h2 class="section-title">Nossos Quartos</h2>
+            <p class="section-subtitle">Escolha entre nossas opções de acomodação, todas pensadas para proporcionar o
+                máximo conforto durante sua estadia.</p>
         </div>
-        <div>
-            <i class="bi bi-facebook"></i>
-            <span> ApartHotelIP</span>
+
+        <div class="rooms-grid">
+            <!-- Room 1 -->
+            <article class="room-card">
+                <div class="room-image">
+                    <img src="./img/Quarto1.jpg"
+                        alt="Quarto com 3 camas, ambiente aconchegante com decoração moderna">
+                    <div class="room-badge">Mais Popular</div>
+                </div>
+                <div class="room-info">
+                    <h3 class="room-title">Quarto Triplo</h3>
+                    <div class="room-features">
+                        <span class="feature-tag">
+                            <i class="bi bi-bed"></i>
+                            3 Camas
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-wifi"></i>
+                            Wi-Fi Grátis
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-snow"></i>
+                            Ar Condicionado
+                        </span>
+                    </div>
+                    <div class="pricing">
+                        <div class="price-row">
+                            <span class="price-label">Adultos</span>
+                            <span class="price-value">R$ 120,00</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="reservar()">
+                        <i class="bi bi-calendar-plus"></i>
+                        Reservar Quarto
+                    </button>
+                </div>
+            </article>
+
+            <!-- Room 2 -->
+            <article class="room-card">
+                <div class="room-image">
+                    <img src="./img/Quarto2.jpg"
+                        alt="Quarto com 2 camas, ideal para casais ou pequenas famílias">
+                </div>
+                <div class="room-info">
+                    <h3 class="room-title">Quarto Duplo</h3>
+                    <div class="room-features">
+                        <span class="feature-tag">
+                            <i class="bi bi-bed"></i>
+                            2 Camas
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-wifi"></i>
+                            Wi-Fi Grátis
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-tv"></i>
+                            TV
+                        </span>
+                    </div>
+                    <div class="pricing">
+                        <div class="price-row">
+                            <span class="price-label">Adultos</span>
+                            <span class="price-value">R$ 100,00</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="reservar()">
+                        <i class="bi bi-calendar-plus"></i>
+                        Reservar Quarto
+                    </button>
+                </div>
+            </article>
+
+            <!-- Room 3 -->
+            <article class="room-card">
+                <div class="room-image">
+                    <img src="./img/Quarto3.JPG"
+                        alt="Quarto econômico com 2 camas, confortável e acessível">
+                </div>
+                <div class="room-info">
+                    <h3 class="room-title">Quarto Econômico</h3>
+                    <div class="room-features">
+                        <span class="feature-tag">
+                            <i class="bi bi-bed"></i>
+                            2 Camas
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-wifi"></i>
+                            Wi-Fi Grátis
+                        </span>
+                        <span class="feature-tag">
+                            <i class="bi bi-tv"></i>
+                            TV
+                        </span>
+                    </div>
+                    <div class="pricing">
+                        <div class="price-row">
+                            <span class="price-label">Adultos</span>
+                            <span class="price-value">R$ 80,00</span>
+                        </div>
+                    </div>
+                    <button class="book-button" onclick="reservar()">
+                        <i class="bi bi-calendar-plus"></i>
+                        Reservar Quarto
+                    </button>
+                </div>
+            </article>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <h4>Desenvolvido por -> JhonhTech </h4>
-</footer>
-<script>
-  // Botões de reservar
-  const buttons = document.querySelectorAll(".book");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      window.location.href = "cadastro/reserva.html"; // redireciona sempre
-    });
-  });
+    <!-- Explore Region Section -->
+    <section class="explore-region" id="explore">
+        <div class="explore-content">
+            <div class="section-header">
+                <h2 class="section-title">Explore Belém</h2>
+                <p class="section-subtitle">Descubra os pontos turísticos mais incríveis da capital paraense, rica em
+                    história, cultura e natureza amazônica.</p>
+            </div>
 
-  // Menu responsivo (abre/fecha no mobile)
-  const menuBtn = document.createElement("div");
-  menuBtn.innerHTML = '<i class="bi bi-list"></i>';
-  menuBtn.classList.add("menu-btn");
-  document.querySelector("header nav").prepend(menuBtn);
+            <!-- Tourism Carousel -->
+            <div class="tourism-carousel">
+                <div class="carousel-container" id="carouselContainer">
+                    <!-- Ver-o-Peso -->
+                    <div class="tourism-card">
+                        <div class="tourism-image"
+                            style="background-image: url('./img/veropa.webp');">
+                            <div class="tourism-badge">2 km</div>
+                        </div>
+                        <div class="tourism-info">
+                            <h3 class="tourism-title">Mercado Ver-o-Peso</h3>
+                            <p class="tourism-description">O maior mercado ao ar livre da América Latina, com produtos
+                                típicos, ervas medicinais e artesanato amazônico.</p>
+                            <div class="tourism-distance">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>2 km do hotel</span>
+                            </div>
+                        </div>
+                    </div>
 
-  const navMenu = document.querySelector(".list-menu");
-  menuBtn.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
+                    <!-- Teatro da Paz -->
+                    <div class="tourism-card">
+                        <div class="tourism-image"
+                            style="background-image: url('./img/teatropaz.jpg');">
+                            <div class="tourism-badge">3 km</div>
+                        </div>
+                        <div class="tourism-info">
+                            <h3 class="tourism-title">Teatro da Paz</h3>
+                            <p class="tourism-description">Majestoso teatro do século XIX, um dos mais importantes
+                                marcos arquitetônicos de Belém.</p>
+                            <div class="tourism-distance">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>3 km do hotel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estação das Docas -->
+                    <div class="tourism-card">
+                        <div class="tourism-image"
+                            style="background-image: url('./img/estaçãoDoca.jpg');">
+                            <div class="tourism-badge">1.5 km</div>
+                        </div>
+                        <div class="tourism-info">
+                            <h3 class="tourism-title">Estação das Docas</h3>
+                            <p class="tourism-description">Complexo turístico às margens da Baía do Guajará, com
+                                restaurantes, bares e vista panorâmica.</p>
+                            <div class="tourism-distance">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>1.5 km do hotel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bosque Rodrigues Alves -->
+                    <div class="tourism-card">
+                        <div class="tourism-image"
+                            style="background-image: url('./img/bosque.jpg');">
+                            <div class="tourism-badge">4 km</div>
+                        </div>
+                        <div class="tourism-info">
+                            <h3 class="tourism-title">Bosque Rodrigues Alves</h3>
+                            <p class="tourism-description">Jardim botânico da Amazônia com trilhas ecológicas e
+                                diversidade da flora regional.</p>
+                            <div class="tourism-distance">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>4 km do hotel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Casa das 11 Janelas -->
+                    <div class="tourism-card">
+                        <div class="tourism-image"
+                            style="background-image: url('./img/caption.jpg');">
+                            <div class="tourism-badge">2.5 km</div>
+                        </div>
+                        <div class="tourism-info">
+                            <h3 class="tourism-title">Casa das 11 Janelas</h3>
+                            <p class="tourism-description">Museu de arte contemporânea em casarão colonial, com vista
+                                privilegiada da baía.</p>
+                            <div class="tourism-distance">
+                                <i class="bi bi-geo-alt"></i>
+                                <span>2.5 km do hotel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators" id="indicators"></div>
+            </div>
+
+            <!-- Map Container -->
+            <div class="map-container">
+                <div class="map-header">
+                    <h3 class="map-title">Nossa Localização</h3>
+                    <p>Estrategicamente localizado no coração de Belém</p>
+                </div>
+
+                <iframe class="map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.756234567890!2d-48.4962962!3d-1.4557309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c2d2b8c8c8d%3A0x1234567890abcdef!2sBel%C3%A9m%2C%20PA!5e0!3m2!1spt!2sbr!4v1234567890123!5m2!1spt!2sbr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <!-- Locations Grid -->
+                <div class="locations-grid">
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <div class="location-info">
+                            <h4>Mercado Ver-o-Peso</h4>
+                            <div class="location-distance">2 km • 5 min de carro</div>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="location-info">
+                            <h4>Centro Histórico</h4>
+                            <div class="location-distance">3 km • 8 min de carro</div>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="bi bi-airplane"></i>
+                        </div>
+                        <div class="location-info">
+                            <h4>Aeroporto Val-de-Cans</h4>
+                            <div class="location-distance">12 km • 20 min de carro</div>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="bi bi-water"></i>
+                        </div>
+                        <div class="location-info">
+                            <h4>Estação das Docas</h4>
+                            <div class="location-distance">1.5 km • 4 min de carro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights" id="highlights">
+        <div class="highlights-content">
+            <div class="highlights-header">
+                <h2 class="highlights-title">Nossos Destaques</h2>
+
+                <!-- Rating Display -->
+                <div class="rating-display">
+                    <div class="rating-number">4.8</div>
+                    <div class="rating-info">
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-text">Excelente</div>
+                        <div class="rating-subtitle">Baseado em 127 avaliações</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-rating">★★★★★</div>
+                    <p class="review-text">"Localização perfeita, quartos limpos e equipe muito atenciosa. A proximidade
+                        com o Ver-o-Peso foi um grande diferencial para nossa viagem."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Maria Santos</div>
+                            <div class="author-location">São Paulo, SP</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-rating">★★★★★</div>
+                    <p class="review-text">"Excelente custo-benefício! Os quartos são confortáveis e o atendimento é
+                        excepcional. Recomendo para quem quer conhecer Belém."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <div class="author-name">João Silva</div>
+                            <div class="author-location">Rio de Janeiro, RJ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-rating">★★★★☆</div>
+                    <p class="review-text">"Hotel muito bem localizado, café da manhã regional delicioso. Ideal para
+                        quem quer explorar a cultura paraense."</p>
+                    <div class="review-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <div class="author-name">Ana Costa</div>
+                            <div class="author-location">Brasília, DF</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Section -->
+    <section class="property" id="property">
+        <div class="property-content">
+            <div class="property-header">
+                <h2 class="property-title">Sobre Nossa Propriedade</h2>
+                <p class="property-subtitle">Oferecemos todas as comodidades necessárias para uma estadia confortável e
+                    sustentável em Belém.</p>
+            </div>
+
+            <!-- Amenities Grid -->
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-snow"></i>
+                    </div>
+                    <h3 class="amenity-title">Ar Condicionado</h3>
+                    <p class="amenity-description">Todos os quartos possuem ar condicionado moderno e eficiente para o
+                        seu conforto.</p>
+                </div>
+
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-car-front"></i>
+                    </div>
+                    <h3 class="amenity-title">Estacionamento Privativo</h3>
+                    <p class="amenity-description">Estacionamento exclusivo e seguro para hóspedes (* sujeito à
+                        disponibilidade).</p>
+                </div>
+
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-cart"></i>
+                    </div>
+                    <h3 class="amenity-title">Próximo a Supermercado</h3>
+                    <p class="amenity-description">Supermercados e comércios locais a poucos metros do hotel.</p>
+                </div>
+
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <h3 class="amenity-title">Academia Próxima</h3>
+                    <p class="amenity-description">Academia moderna e completa localizada a 2 quarteirões do hotel.</p>
+                </div>
+
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-capsule"></i>
+                    </div>
+                    <h3 class="amenity-title">Farmácia na Região</h3>
+                    <p class="amenity-description">Farmácias 24h disponíveis na região para sua conveniência.</p>
+                </div>
+
+                <div class="amenity-card">
+                    <div class="amenity-icon">
+                        <i class="bi bi-airplane"></i>
+                    </div>
+                    <h3 class="amenity-title">Próximo ao Aeroporto</h3>
+                    <p class="amenity-description">Apenas 20 minutos do Aeroporto Internacional de Belém.</p>
+                </div>
+            </div>
+
+            <!-- Special Note -->
+            <div class="special-note">
+                <div class="special-note-icon">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+                <div class="special-note-text">
+                    * Estacionamento privativo sujeito à disponibilidade e pode ter taxa adicional. Consulte a recepção
+                    para mais informações.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2 class="contact-title">Entre em Contato</h2>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="bi bi-telephone-fill contact-icon"></i>
+                    <p class="contact-text">(91) 98232-7122</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-instagram contact-icon"></i>
+                    <p class="contact-text">@ApartHotelIP</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-facebook contact-icon"></i>
+                    <p class="contact-text">ApartHotelIP</p>
+                </div>
+
+                <div class="contact-item">
+                    <i class="bi bi-envelope-fill contact-icon"></i>
+                    <p class="contact-text">ipaoarthotel@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ApartHotel IP. Desenvolvido por <strong>JhonhTech</strong> - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=5591982327122&text=Olá,%20gostaria%20de%20saber%20sobre%20as%20disponibilidades%20dos%20quartos!"
+        target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle with improved responsiveness
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            menuToggle.querySelector('i').className = 'bi bi-list';
+            document.body.style.overflow = '';
+        }
+
+        function openMenu() {
+            navMenu.classList.add('active');
+            menuToggle.querySelector('i').className = 'bi bi-x-lg';
+            // Prevent body scroll when menu is open on mobile
+            if (window.innerWidth <= 768) {
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        menuToggle.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+
+            // Update carousel on resize
+            if (typeof updateCarousel === 'function') {
+                updateCarousel();
+            }
+        });
+
+        // Reservation function
+        function reservar() {
+            // Add loading state
+            event.target.classList.add('loading');
+            event.target.innerHTML = '<i class="bi bi-hourglass-split"></i> Redirecionando...';
+
+            setTimeout(() => {
+                window.location.href = 'cadastro/reserva.html';
+            }, 800);
+        }
+
+        // Search function
+        function buscarQuartos(event) {
+            event.preventDefault();
+            scrollToRooms('todos');
+        }
+
+        // Expand search function
+        function expandSearch() {
+    const searchInput = document.querySelector('.minimal-search-input');
+
+    flatpickr(searchInput, {
+        mode: "range",           // permite duas datas (check-in e check-out)
+        dateFormat: "d/m/Y",     // formato brasileiro
+        locale: "pt",            // idioma português
+        minDate: "today",        // bloqueia datas passadas
+        onClose: function(selectedDates, dateStr, instance) {
+            if (dateStr) {
+                searchInput.value = dateStr; // preenche o input com o intervalo escolhido
+            }
+        }
+    }).open(); // abre o calendário imediatamente ao clicar
+}
+
+        // Scroll to specific room types
+        function scrollToRooms(type) {
+            document.getElementById('rooms').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // Highlight specific room type if needed
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.room-card');
+                cards.forEach((card, index) => {
+                    if (type === 'todos' ||
+                        (type === 'triplo' && index === 0) ||
+                        (type === 'duplo' && index === 1) ||
+                        (type === 'economico' && index === 2)) {
+                        card.style.animation = 'fadeInUp 0.6s ease forwards';
+                        card.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            card.style.transform = 'scale(1)';
+                        }, 500);
+                    }
+                });
+            }, 500);
+        }
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const totalSlides = 5; // Total number of tourism cards
+        let slideWidth = 370; // Card width + gap (will be updated for mobile)
+
+        function initializeCarousel() {
+            const indicators = document.getElementById('indicators');
+
+            // Create indicators
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                indicator.onclick = () => goToSlide(i);
+                indicators.appendChild(indicator);
+            }
+
+            updateCarousel();
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        function updateSlideWidth() {
+            if (window.innerWidth <= 480) {
+                slideWidth = 284; // Card width + gap for small mobile
+            } else if (window.innerWidth <= 768) {
+                slideWidth = 320; // Card width + gap for mobile
+            } else {
+                slideWidth = 370; // Desktop
+            }
+        }
+
+        function updateCarousel() {
+            const container = document.getElementById('carouselContainer');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Update slide width for current screen size
+            updateSlideWidth();
+
+            // Update carousel position
+            const translateX = currentSlide * slideWidth;
+            container.style.transform = `translateX(-${translateX}px)`;
+
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+
+            // Update button states
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+        }
+
+        // Auto-play carousel
+        function startAutoPlay() {
+            return setInterval(() => {
+                moveCarousel(1);
+            }, 5000); // Change slide every 5 seconds
+        }
+
+        let autoPlayInterval;
+
+        // Touch/Swipe support for mobile
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            clearInterval(autoPlayInterval); // Stop auto-play during interaction
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        }
+
+        function handleTouchEnd(e) {
+            if (!isDragging) return;
+            isDragging = false;
+
+            const diffX = startX - currentX;
+            const threshold = 50; // Minimum swipe distance
+
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    moveCarousel(1); // Swipe left - next slide
+                } else {
+                    moveCarousel(-1); // Swipe right - previous slide
+                }
+            }
+
+            // Restart auto-play
+            autoPlayInterval = startAutoPlay();
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('ApartHotel IP - Turismo Sustentável COP 30 Amazônia');
+
+            // Initialize carousel
+            initializeCarousel();
+
+            // Start auto-play
+            autoPlayInterval = startAutoPlay();
+
+            // Add touch event listeners for mobile
+            const carousel = document.getElementById('carouselContainer');
+            if (carousel) {
+                carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+                carousel.addEventListener('touchmove', handleTouchMove, { passive: true });
+                carousel.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+                // Pause auto-play on hover (desktop)
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(autoPlayInterval);
+                });
+
+                carousel.addEventListener('mouseleave', () => {
+                    autoPlayInterval = startAutoPlay();
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all room cards
+        document.querySelectorAll('.room-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Enhanced accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'bi bi-list';
+            }
+        });
+    </script>
+    <script>
+  const slides = document.querySelector('.slides');
+  const images = document.querySelectorAll('.slides img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  let index = 0;
+
+  function showSlide(i) {
+    index = (i + images.length) % images.length;
+    slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  prev.addEventListener('click', () => showSlide(index - 1));
+  next.addEventListener('click', () => showSlide(index + 1));
 </script>
-<a href="https://api.whatsapp.com/send?phone=5591982327122&text=Ol%C3%A1,%20gostaria%20de%20saber%20as%20disponibilidades%20dos%20quartoos!%5E%5E" 
-   target="_blank" 
-   id="whatsapp-button">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35">
-</a>
+<script>
+    function ajustarBackgroundHero() {
+    const hero = document.querySelector('.hero');
+
+    if(window.innerWidth <= 768){
+        // Remove imagens extras no mobile
+        hero.style.background = 'linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-light) 100%)';
+    } else {
+        // Fundo original com animais e frutas
+        hero.style.background = `
+            url('./img/1.png') no-repeat left 20px bottom 0,
+            url('./img/2.png') no-repeat right bottom 10px,
+            url('./img/3.png') no-repeat right 0 top 60px,
+            url('./img/4.png') no-repeat left top 50px,
+            linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-light) 100%)
+        `;
+        hero.style.backgroundSize = '150px 150px, 150px 150px, 130px 130px, 150px 150px, cover';
+    }
+}
+
+// Chamar na carga da página e no resize
+window.addEventListener('load', ajustarBackgroundHero);
+window.addEventListener('resize', ajustarBackgroundHero);
+
+</script>
 </body>
+
 </html>
