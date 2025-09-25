@@ -220,12 +220,7 @@
             align-items: center;
             justify-content: center;
            background: 
-    url('./img/1.png') no-repeat left 20px bottom 0,   /* 20px do lado esquerdo, colada no bottom */
-    url('./img/2.png') no-repeat right bottom 10px,  /* 10px acima do bottom */
-    url('./img/3.png') no-repeat right 0 top 60px,    /* 30px abaixo do topo */
-    url('./img/4.png') no-repeat left top 50px,     /* 50px abaixo do topo */
     linear-gradient(135deg, var(--forest-dark) 0%, var(--forest-light) 100%);
-  background-size: 150px 150px, 150px 150px, 130px 130px, 150px 150px, cover;
         }
 
         .hero img {
@@ -1999,6 +1994,49 @@
     border-radius: 4px;
     pointer-events: none;
 }
+.wave-separator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0; /* tira espaços extras */
+}
+
+.wave-separator svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wave-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.title-blob {
+  position: relative;
+  display: inline-block; /* faz o blob abraçar o título */
+}
+
+.title-blob .blob {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* centraliza o blob no título */
+  z-index: -1; /* fica atrás do texto */
+}
+
+.section-title {
+  position: relative;
+  font-size: 2.5rem;
+  color: #1a3d2f;
+  z-index: 1;
+}
+
+
+
 
 
         
