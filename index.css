@@ -87,10 +87,14 @@
 
         body {
             font-family: var(--font-body);
-            line-height: 1.6;
-            color: var(--neutral-800);
-            background-color: var(--neutral-50);
-            overflow-x: hidden;
+    line-height: 1.6;
+    color: var(--neutral-800);
+    background-color: var(--neutral-50);
+    overflow-x: hidden;
+    background-image: url('./img/Backgraund3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
         }
 
         /* Header */
@@ -316,20 +320,22 @@
         /* Minimal Search Bar */
         .minimal-search {
             background-color: white;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-3);
-            backdrop-filter: blur(20px);
-            max-width: 600px;
-            margin: 0 auto var(--space-16);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            color: #14532d;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: var(--space-3);
+    backdrop-filter: blur(20px);
+    max-width: 750px;
+    width: 120%;
+    margin: 0 auto var(--space-16);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #14532d;
+    transform: translateX(-10%);
         }
 
         .minimal-search-form {
             display: flex;
-            gap: var(--space-3);
-            align-items: center;
+    gap: var(--space-3);
+    align-items: center;
         }
 
         .minimal-search-input {
@@ -1951,6 +1957,49 @@
             color: var(--accent-800);
             font-weight: 500;
         }
+
+        .counter {
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+.counter label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.counter-controls {
+    display: flex;
+    align-items: center;
+}
+
+.counter-controls button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.counter-controls button:hover {
+    background-color: #f0f0f0;
+}
+
+.counter-controls input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
 
         
 

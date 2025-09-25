@@ -78,7 +78,7 @@
         <h1 class="hero-title fade-in-up">ApartHotel IP</h1>
         <div class="minimal-search fade-in-up">
             <form class="minimal-search-form" onsubmit="buscarQuartos(event)">
-                <input type="text" class="minimal-search-input" placeholder="Check-in e Check-out" readonly
+                <input type="text" class="minimal-search-input" placeholder="Check-in | Check-out" readonly
                     onclick="expandSearch()">
                 <button type="button" class="minimal-search-button" onclick="scrollToRooms('todos')">
                     <i class="bi bi-search"></i>
@@ -133,6 +133,19 @@
             </div>
         </div>
     </section>
+    <div id="alerta-limite" style="display: none; 
+    background-color: #ff4d4d; 
+    color: white; 
+    padding: 12px; 
+    text-align: center; 
+    font-weight: bold; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000;">
+</div>
+
 
     <!-- Rooms Section -->
     <section class="rooms" id="rooms">
@@ -148,114 +161,146 @@
                 máximo conforto durante sua estadia.</p>
         </div>
 
-        <div class="rooms-grid">
-            <!-- Room 1 -->
-            <article class="room-card">
-                <div class="room-image">
-                    <img src="./img/Quarto1.jpg"
-                        alt="Quarto com 3 camas, ambiente aconchegante com decoração moderna">
-                    <div class="room-badge">Mais Popular</div>
+<section class="rooms">
+    <div class="rooms-grid">
+        <!-- Room 1 -->
+        <article class="room-card">
+            <div class="room-image">
+                <img src="./img/Quarto1.jpg" alt="Quarto com 3 camas, ambiente aconchegante com decoração moderna">
+                <div class="room-badge">Mais Popular</div>
+            </div>
+            <div class="room-info">
+                <h3 class="room-title">Quarto Triplo</h3>
+                <div class="room-features">
+                    <span class="feature-tag"><i class="bi bi-bed"></i> 3 Camas</span>
+                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+                    <span class="feature-tag"><i class="bi bi-snow"></i> Ar Condicionado</span>
                 </div>
-                <div class="room-info">
-                    <h3 class="room-title">Quarto Triplo</h3>
-                    <div class="room-features">
-                        <span class="feature-tag">
-                            <i class="bi bi-bed"></i>
-                            3 Camas
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-wifi"></i>
-                            Wi-Fi Grátis
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-snow"></i>
-                            Ar Condicionado
-                        </span>
+                <div class="pricing">
+                    <div class="price-row">
+                        <span class="price-label">Valor por pessoa</span>
+                        <span class="price-value">R$ 120,00</span>
                     </div>
-                    <div class="pricing">
-                        <div class="price-row">
-                            <span class="price-label">Adultos</span>
-                            <span class="price-value">R$ 120,00</span>
+                </div>
+                <div class="reservation-details">
+                    <!-- Diárias -->
+                    <div class="counter">
+                        <label>Diárias</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-days" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
                         </div>
                     </div>
-                    <button class="book-button" onclick="reservar()">
-                        <i class="bi bi-calendar-plus"></i>
-                        Reservar Quarto
-                    </button>
-                </div>
-            </article>
 
-            <!-- Room 2 -->
-            <article class="room-card">
-                <div class="room-image">
-                    <img src="./img/Quarto2.jpg"
-                        alt="Quarto com 2 camas, ideal para casais ou pequenas famílias">
-                </div>
-                <div class="room-info">
-                    <h3 class="room-title">Quarto Duplo</h3>
-                    <div class="room-features">
-                        <span class="feature-tag">
-                            <i class="bi bi-bed"></i>
-                            2 Camas
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-wifi"></i>
-                            Wi-Fi Grátis
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-tv"></i>
-                            TV
-                        </span>
-                    </div>
-                    <div class="pricing">
-                        <div class="price-row">
-                            <span class="price-label">Adultos</span>
-                            <span class="price-value">R$ 100,00</span>
+                    <!-- Pessoas -->
+                    <div class="counter">
+                        <label>Pessoas</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-people" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
                         </div>
                     </div>
-                    <button class="book-button" onclick="reservar()">
-                        <i class="bi bi-calendar-plus"></i>
-                        Reservar Quarto
-                    </button>
                 </div>
-            </article>
+                <button class="book-button" onclick="reservar(this)">
+                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
+                </button>
+            </div>
+        </article>
 
-            <!-- Room 3 -->
-            <article class="room-card">
-                <div class="room-image">
-                    <img src="./img/Quarto3.JPG"
-                        alt="Quarto econômico com 2 camas, confortável e acessível">
+        <!-- Room 2 -->
+        <article class="room-card">
+            <div class="room-image">
+                <img src="./img/Quarto2.jpg" alt="Quarto com 2 camas, ideal para casais ou pequenas famílias">
+            </div>
+            <div class="room-info">
+                <h3 class="room-title">Quarto Econômico</h3>
+                <div class="room-features">
+                    <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
+                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+                    <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
                 </div>
-                <div class="room-info">
-                    <h3 class="room-title">Quarto Econômico</h3>
-                    <div class="room-features">
-                        <span class="feature-tag">
-                            <i class="bi bi-bed"></i>
-                            2 Camas
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-wifi"></i>
-                            Wi-Fi Grátis
-                        </span>
-                        <span class="feature-tag">
-                            <i class="bi bi-tv"></i>
-                            TV
-                        </span>
+                <div class="pricing">
+                    <div class="price-row">
+                        <span class="price-label">Valor por pessoa</span>
+                        <span class="price-value">R$ 100,00</span>
                     </div>
-                    <div class="pricing">
-                        <div class="price-row">
-                            <span class="price-label">Adultos</span>
-                            <span class="price-value">R$ 80,00</span>
+                </div>
+                <div class="reservation-details">
+                    <!-- Diárias -->
+                    <div class="counter">
+                        <label>Diárias</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-days" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
                         </div>
                     </div>
-                    <button class="book-button" onclick="reservar()">
-                        <i class="bi bi-calendar-plus"></i>
-                        Reservar Quarto
-                    </button>
+
+                    <!-- Pessoas -->
+                    <div class="counter">
+                        <label>Pessoas</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-people" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </div>
-    </section>
+                <button class="book-button" onclick="reservar(this)">
+                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
+                </button>
+            </div>
+        </article>
+
+        <!-- Room 3 -->
+        <article class="room-card">
+            <div class="room-image">
+                <img src="./img/Quarto3.JPG" alt="Quarto econômico com 2 camas, confortável e acessível">
+            </div>
+            <div class="room-info">
+                <h3 class="room-title">Quarto Duplo</h3>
+                <div class="room-features">
+                    <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
+                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+                    <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
+                </div>
+                <div class="pricing">
+                    <div class="price-row">
+                        <span class="price-label">Valor por pessoa</span>
+                        <span class="price-value">R$ 80,00</span>
+                    </div>
+                </div>
+                <div class="reservation-details">
+                    <!-- Diárias -->
+                    <div class="counter">
+                        <label>Diárias</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-days" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Pessoas -->
+                    <div class="counter">
+                        <label>Pessoas</label>
+                        <div class="counter-controls">
+                            <button type="button" onclick="changeValue(this, -1)">−</button>
+                            <input type="number" class="input-people" value="1" min="1" readonly>
+                            <button type="button" onclick="changeValue(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="book-button" onclick="reservar(this)">
+                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
+                </button>
+            </div>
+        </article>
+    </div>
+</section>
+
 
     <!-- Explore Region Section -->
     <section class="explore-region" id="explore">
@@ -354,7 +399,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Carousel Controls -->
                 <div class="carousel-controls">
                     <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)">
@@ -364,7 +408,6 @@
                         <i class="bi bi-chevron-right"></i>
                     </button>
                 </div>
-
                 <!-- Carousel Indicators -->
                 <div class="carousel-indicators" id="indicators"></div>
             </div>
@@ -377,7 +420,7 @@
                 </div>
 
                 <iframe class="map-iframe"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.756234567890!2d-48.4962962!3d-1.4557309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48c2d2b8c8c8d%3A0x1234567890abcdef!2sBel%C3%A9m%2C%20PA!5e0!3m2!1spt!2sbr!4v1234567890123!5m2!1spt!2sbr"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.596643633227!2d-48.46766322667541!3d-1.4179153357807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48b0d8ddbdd57%3A0x8f97e04beba67b2c!2sAPART%20HOTEL%20E%20RESIDENCIAL%20IP!5e0!3m2!1spt-BR!2sbr!4v1758778913219!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
 
@@ -949,6 +992,182 @@ window.addEventListener('load', ajustarBackgroundHero);
 window.addEventListener('resize', ajustarBackgroundHero);
 
 </script>
+
+<script>
+function reservar(button) {
+    const roomCard = button.closest('.room-card');
+
+    // Nome e características do quarto
+    const roomName = roomCard.querySelector('.room-title').innerText;
+    const beds = Array.from(roomCard.querySelectorAll('.feature-tag')).map(el => el.innerText).join(', ');
+
+    // Preço por pessoa
+    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
+
+    // Diárias e número de pessoas
+    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
+    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
+
+    // Calcula valor total
+    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
+    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
+
+    // Monta mensagem
+    let message = `Olá, gostaria de confirmar minha reserva\n\n`;
+    message += `Quarto: ${roomName}\n`;
+    message += `Características: ${beds}\n`;
+    message += `Diárias: ${days}\n`;
+    message += `Número de pessoas: ${people}\n`;
+    message += `Valor total: R$ ${total}\n`;
+
+    // Codifica mensagem
+    const encodedMessage = encodeURIComponent(message);
+
+    // Número do WhatsApp
+    const phone = '5591982327122';
+
+    // Redireciona para WhatsApp
+    window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`, '_blank');
+}
+</script>
+
+<script>
+function changeValue(button, delta) {
+    const input = button.parentElement.querySelector('input');
+    let value = parseInt(input.value);
+    value += delta;
+    if (value < parseInt(input.min)) value = parseInt(input.min);
+    input.value = value;
+}
+</script>
+<script>
+function updateTotal(roomCard) {
+    // Preço por pessoa
+    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
+
+    // Diárias e pessoas
+    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
+    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
+
+    // Calcula total
+    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
+    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
+
+    // Mostra dentro do card
+    let totalEl = roomCard.querySelector('.total-price');
+    if (!totalEl) {
+        totalEl = document.createElement('div');
+        totalEl.classList.add('total-price');
+        roomCard.querySelector('.pricing').appendChild(totalEl);
+    }
+    totalEl.innerHTML = `<strong>Total: R$ ${total}</strong>`;
+}
+</script>
+<script>
+function changeValue(button, delta) {
+    const input = button.parentElement.querySelector('input');
+    let value = parseInt(input.value);
+    value += delta;
+    if (value < parseInt(input.min)) value = parseInt(input.min);
+    input.value = value;
+
+    // Atualizar total do card
+    const roomCard = button.closest('.room-card');
+    updateTotal(roomCard);
+}
+</script>
+<script>
+function reservar(button) {
+    const roomCard = button.closest('.room-card');
+
+    // Nome e características do quarto
+    const roomName = roomCard.querySelector('.room-title').innerText;
+    const beds = Array.from(roomCard.querySelectorAll('.feature-tag')).map(el => el.innerText).join(', ');
+
+    // Preço por pessoa
+    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
+
+    // Diárias e número de pessoas
+    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
+    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
+
+    // Calcula valor total atualizado
+    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
+    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
+
+    // Monta mensagem
+    let message = `Olá, gostaria de confirmar minha reserva\n\n`;
+    message += `Quarto: ${roomName}\n`;
+    message += `Características: ${beds}\n`;
+    message += `Diárias: ${days}\n`;
+    message += `Número de pessoas: ${people}\n`;
+    message += `Valor total: R$ ${total}\n`;
+
+    // Codifica mensagem
+    const encodedMessage = encodeURIComponent(message);
+
+    // Número do WhatsApp
+    const phone = '5591982327122';
+
+    // Redireciona para WhatsApp
+    window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`, '_blank');
+}
+</script>
+<script>
+const MAX_PESSOAS = 7;
+
+function mostrarAlerta(msg) {
+    const alerta = document.getElementById('alerta-limite');
+    alerta.innerText = msg;
+    alerta.style.display = 'block';
+
+    // some automaticamente após 4 segundos
+    setTimeout(() => {
+        alerta.style.display = 'none';
+    }, 4000);
+}
+
+function updateTotal(roomCard) {
+    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
+    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
+    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
+
+    // 🚨 Verifica limite
+    if (people > MAX_PESSOAS) {
+        roomCard.querySelector('.input-people').value = MAX_PESSOAS;
+        mostrarAlerta(`⚠️ O máximo permitido por quarto é ${MAX_PESSOAS} pessoas.`);
+        return; // não continua o cálculo com valor errado
+    }
+
+    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
+    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
+
+    let totalEl = roomCard.querySelector('.total-price');
+    if (!totalEl) {
+        totalEl = document.createElement('div');
+        totalEl.classList.add('total-price');
+        roomCard.querySelector('.pricing').appendChild(totalEl);
+    }
+    totalEl.innerHTML = `<strong>Total: R$ ${total}</strong>`;
+}
+
+function changeValue(button, delta) {
+    const input = button.parentElement.querySelector('input');
+    let value = parseInt(input.value);
+    value += delta;
+    if (value < parseInt(input.min)) value = parseInt(input.min);
+    if (value > MAX_PESSOAS) {
+        value = MAX_PESSOAS;
+        mostrarAlerta(`⚠️ O máximo permitido por quarto é ${MAX_PESSOAS} pessoas.`);
+    }
+    input.value = value;
+
+    const roomCard = button.closest('.room-card');
+    updateTotal(roomCard);
+}
+</script>
+
+
 </body>
 
 </html>
