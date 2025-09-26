@@ -212,6 +212,86 @@
             background-color: var(--neutral-100);
         }
 
+       .language {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-left: auto;   /* 🔥 empurra para o canto direito */
+  width: auto;         /* não força largura fixa */
+  position: relative;
+}
+
+.language-selected {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.language-selected::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url("https://flagcdn.com/w40/br.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+.language ul{
+    position: absolute;
+    width: 140px;
+    background-color: white;
+    border: 1px solid #f8f8f8;
+    padding-top: 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    top: 100%;   /* 🔹 aqui ele aparece logo abaixo do PT-BR */
+    right: 0;
+}
+.language:hover ul {
+    display: block; /* 🔹 aparece ao passar o mouse */
+}
+
+.language ul li{
+    list-style: none;
+}
+
+.language ul li:hover{
+    background-color: white;
+}
+
+.language ul li a{
+    display: block;
+    color: #252525;
+    padding-top: 5px 10px;
+}
+
+.language ul li a::before{
+content: '';
+display: inline-block;
+width: 25px;
+height: 25px;
+background-size: contain;
+background-repeat: no-repeat;
+vertical-align: middle;
+margin-right: 10px;
+}
+
+a.br::before{
+    background-image: url("https://flagcdn.com/w40/br.png");
+}
+a.en::before{
+    background-image: url("https://flagcdn.com/w40/us.png");
+}
+a.es::before{
+    background-image: url("https://flagcdn.com/w40/es.png");
+}
+
+.language:hover ul{
+    display: block;
+}
+
+
         /* Hero Section - Minimal Amazonia Design */
         .hero {
             margin-top: 30px;
@@ -2201,6 +2281,12 @@
     height: auto;
   }
 }
+#google_translate_element select {
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
 
 
 

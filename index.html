@@ -25,41 +25,51 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-content">
-            <a href="#" class="logo">
-                <img src="./img/logo3.png" alt="ApartHotel IP Logo">
-                <span class="logo-text">ApartHotel IP</span>
-            </a>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header-content">
+    <a href="#" class="logo">
+      <img src="./img/logo3.png" alt="ApartHotel IP Logo">
+      <span class="logo-text">ApartHotel IP</span>
+    </a>
 
-            <nav class="nav">
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Início</a></li>
-                    <li><a href="#rooms" class="nav-link">Quartos</a></li>
-                    <li><a href="#explore" class="nav-link">Explorar</a></li>
-                    <li><a href="#highlights" class="nav-link">Destaques</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
+    <nav class="nav">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link">Início</a></li>
+        <li><a href="#rooms" class="nav-link">Quartos</a></li>
+        <li><a href="#explore" class="nav-link">Explorar</a></li>
+        <li><a href="#highlights" class="nav-link">Destaques</a></li>
+        <li><a href="#contact" class="nav-link">Contato</a></li>
 
-                    <div class="nav-social">
-                        <a href="https://wa.me/5591982327122" target="_blank" class="social-link" aria-label="WhatsApp">
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                        <a href="mailto:ipaoarthotel@gmail.com" class="social-link" aria-label="Email">
-                            <i class="bi bi-envelope"></i>
-                        </a>
-                        <a href="cadastro/cad.html" class="social-link" aria-label="Área do Cliente">
-                            <i class="bi bi-person-circle"></i>
-                        </a>
-                    </div>
-                </ul>
-
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <i class="bi bi-list"></i>
-                </button>
-            </nav>
+        <div class="nav-social">
+          <a href="https://wa.me/5591982327122" target="_blank" class="social-link" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <a href="mailto:ipaoarthotel@gmail.com" class="social-link" aria-label="Email">
+            <i class="bi bi-envelope"></i>
+          </a>
         </div>
-    </header>
+      </ul>
+
+      <!-- 🔥 Seletor de idioma no final da nav -->
+      <div class="language">
+        <div class="language-selected">Pt-Br</div>
+        <ul>
+          <li><a href="#" class="br">Português</a></li>
+          <li><a href="#" class="en">English</a></li>
+          <li><a href="#" class="es">Español</a></li>
+        </ul>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </nav>
+  </div>
+  <div id="google_translate_element"></div>
+
+</header>
+
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1032,7 +1042,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    const selected = document.getElementById('selected-language');
+const list = document.getElementById('language-list');
 
+selected.addEventListener('click', () => {
+  list.style.display = list.style.display === 'block' ? 'none' : 'block';
+});
+
+// Fecha o dropdown se clicar fora
+document.addEventListener('click', (e) => {
+  if (!selected.contains(e.target) && !list.contains(e.target)) {
+    list.style.display = 'none';
+  }
+});
+
+</script>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',   // idioma original do site
+    includedLanguages: 'en,es,pt', // idiomas disponíveis
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
