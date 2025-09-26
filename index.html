@@ -72,6 +72,8 @@
     </path>
   </svg>
   </div>
+  <!-- Animação de folhas caindo -->
+  <div class="falling-leaves" id="falling-leaves"></div>
 
         <div class="hero-content">
             <!-- Hero Badge -->
@@ -184,146 +186,75 @@
 </section>
 
 <section class="rooms">
-    <div class="rooms-grid">
-        <!-- Room 1 -->
-        <article class="room-card">
-            <div class="room-image">
-                <img src="./img/Quarto1.jpg" alt="Quarto com 3 camas, ambiente aconchegante com decoração moderna">
-                <div class="room-badge">Mais Popular</div>
-            </div>
-            <div class="room-info">
-                <h3 class="room-title">Quarto Triplo</h3>
-                <div class="room-features">
-                    <span class="feature-tag"><i class="bi bi-bed"></i> 3 Camas</span>
-                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
-                    <span class="feature-tag"><i class="bi bi-snow"></i> Ar Condicionado</span>
-                </div>
-                <div class="pricing">
-                    <div class="price-row">
-                        <span class="price-label">Valor por pessoa</span>
-                        <span class="price-value">R$ 120,00</span>
-                    </div>
-                </div>
-                <div class="reservation-details">
-                    <!-- Diárias -->
-                    <div class="counter">
-                        <label>Diárias</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-days" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
+  <div class="rooms-grid">
+    <!-- Room 1 -->
+    <article class="room-card">
+      <div class="room-image">
+        <img src="./img/Quarto1.jpg" alt="Quarto com 3 camas, ambiente aconchegante com decoração moderna">
+        <div class="room-badge">Mais Popular</div>
+      </div>
+      <div class="room-info">
+        <h3 class="room-title">Quarto Triplo</h3>
+        <div class="room-features">
+          <span class="feature-tag"><i class="bi bi-bed"></i> 3 Camas</span>
+          <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+          <span class="feature-tag"><i class="bi bi-snow"></i> Ar Condicionado</span>
+        </div>
+        <label class="exclusive-option">
+          <input type="checkbox" class="exclusive-room">
+          Quarto Exclusivo
+        </label>
+        <button type="button" class="book-button" onclick="reservar(this)">
+          <i class="bi bi-calendar-plus"></i> Reservar Quarto
+        </button>
+      </div>
+    </article>
 
-                    <!-- Pessoas -->
-                    <div class="counter">
-                        <label>Pessoas</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-people" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="book-button" onclick="reservar(this)">
-                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
-                </button>
-            </div>
-        </article>
+    <!-- Room 2 -->
+    <article class="room-card">
+      <div class="room-image">
+        <img src="./img/Quarto2.jpg" alt="Quarto com 2 camas, ideal para casais ou pequenas famílias">
+      </div>
+      <div class="room-info">
+        <h3 class="room-title">Quarto Livre</h3>
+        <div class="room-features">
+          <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
+          <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+          <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
+        </div>
+        <label class="exclusive-option">
+          <input type="checkbox" class="exclusive-room">
+          Quarto Exclusivo
+        </label>
+        <button type="button" class="book-button" onclick="reservar(this)">
+          <i class="bi bi-calendar-plus"></i> Reservar Quarto
+        </button>
+      </div>
+    </article>
 
-        <!-- Room 2 -->
-        <article class="room-card">
-            <div class="room-image">
-                <img src="./img/Quarto2.jpg" alt="Quarto com 2 camas, ideal para casais ou pequenas famílias">
-            </div>
-            <div class="room-info">
-                <h3 class="room-title">Quarto Econômico</h3>
-                <div class="room-features">
-                    <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
-                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
-                    <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
-                </div>
-                <div class="pricing">
-                    <div class="price-row">
-                        <span class="price-label">Valor por pessoa</span>
-                        <span class="price-value">R$ 100,00</span>
-                    </div>
-                </div>
-                <div class="reservation-details">
-                    <!-- Diárias -->
-                    <div class="counter">
-                        <label>Diárias</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-days" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Pessoas -->
-                    <div class="counter">
-                        <label>Pessoas</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-people" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="book-button" onclick="reservar(this)">
-                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
-                </button>
-            </div>
-        </article>
-
-        <!-- Room 3 -->
-        <article class="room-card">
-            <div class="room-image">
-                <img src="./img/Quarto3.JPG" alt="Quarto econômico com 2 camas, confortável e acessível">
-            </div>
-            <div class="room-info">
-                <h3 class="room-title">Quarto Duplo</h3>
-                <div class="room-features">
-                    <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
-                    <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
-                    <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
-                </div>
-                <div class="pricing">
-                    <div class="price-row">
-                        <span class="price-label">Valor por pessoa</span>
-                        <span class="price-value">R$ 80,00</span>
-                    </div>
-                </div>
-                <div class="reservation-details">
-                    <!-- Diárias -->
-                    <div class="counter">
-                        <label>Diárias</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-days" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Pessoas -->
-                    <div class="counter">
-                        <label>Pessoas</label>
-                        <div class="counter-controls">
-                            <button type="button" onclick="changeValue(this, -1)">−</button>
-                            <input type="number" class="input-people" value="1" min="1" readonly>
-                            <button type="button" onclick="changeValue(this, 1)">+</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="book-button" onclick="reservar(this)">
-                    <i class="bi bi-calendar-plus"></i> Reservar Quarto
-                </button>
-            </div>
-        </article>
-    </div>
+    <!-- Room 3 -->
+    <article class="room-card">
+      <div class="room-image">
+        <img src="./img/Quarto3.JPG" alt="Quarto econômico com 2 camas, confortável e acessível">
+      </div>
+      <div class="room-info">
+        <h3 class="room-title">Quarto Duplo</h3>
+        <div class="room-features">
+          <span class="feature-tag"><i class="bi bi-bed"></i> 2 Camas</span>
+          <span class="feature-tag"><i class="bi bi-wifi"></i> Wi-Fi Grátis</span>
+          <span class="feature-tag"><i class="bi bi-tv"></i> TV</span>
+        </div>
+        <label class="exclusive-option">
+          <input type="checkbox" class="exclusive-room">
+          Quarto Exclusivo
+        </label>
+        <button type="button" class="book-button" onclick="reservar(this)">
+          <i class="bi bi-calendar-plus"></i> Reservar Quarto
+        </button>
+      </div>
+    </article>
+  </div>
 </section>
-
-
     <!-- Explore Region Section -->
     <section class="explore-region" id="explore">
         <div class="explore-content">
@@ -454,7 +385,7 @@
                         </div>
                         <div class="location-info">
                             <h4>Mercado Ver-o-Peso</h4>
-                            <div class="location-distance">2 km • 5 min de carro</div>
+                            <div class="location-distance">5,8 km • 15 min de carro</div>
                         </div>
                     </div>
 
@@ -474,7 +405,7 @@
                         </div>
                         <div class="location-info">
                             <h4>Aeroporto Val-de-Cans</h4>
-                            <div class="location-distance">12 km • 20 min de carro</div>
+                            <div class="location-distance">4,1  km • 15 min de carro</div>
                         </div>
                     </div>
 
@@ -484,7 +415,7 @@
                         </div>
                         <div class="location-info">
                             <h4>Estação das Docas</h4>
-                            <div class="location-distance">1.5 km • 4 min de carro</div>
+                            <div class="location-distance"> 5,2 km • 13 min de carro</div>
                         </div>
                     </div>
                 </div>
@@ -539,8 +470,7 @@
 
                 <div class="review-card">
                     <div class="review-rating">★★★★☆</div>
-                    <p class="review-text">"Hotel muito bem localizado, café da manhã regional delicioso. Ideal para
-                        quem quer explorar a cultura paraense."</p>
+                    <p class="review-text">"Hotel muito bem localizado, bem próximo do centro de Belém inclusive de feiras que vendem as frutas típicas"</p>
                     <div class="review-author">
                         <div class="author-avatar">A</div>
                         <div class="author-info">
@@ -992,122 +922,35 @@
 
 <script>
 function reservar(button) {
-    const roomCard = button.closest('.room-card');
+  // garante que encontrou o card
+  const card = button.closest('.room-card'); 
+  console.log("Card encontrado:", card);
 
-    // Nome e características do quarto
-    const roomName = roomCard.querySelector('.room-title').innerText;
-    const beds = Array.from(roomCard.querySelectorAll('.feature-tag')).map(el => el.innerText).join(', ');
+  if (!card) {
+    alert("Erro: não foi possível encontrar o card do quarto.");
+    return;
+  }
 
-    // Preço por pessoa
-    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
+  // Nome do quarto
+  const roomName = card.querySelector(".room-title")?.innerText || "Sem nome";
 
-    // Diárias e número de pessoas
-    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
-    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
+  // Camas
+  const beds = card.querySelector('.bi-bed')?.parentElement?.innerText || "Não informado";
 
-    // Calcula valor total
-    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
-    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
+  // Checkbox de exclusividade
+  const exclusiveCheckbox = card.querySelector('.exclusive-room');
+  const isExclusive = exclusiveCheckbox && exclusiveCheckbox.checked ? "✅ Sim" : "❌ Não";
 
-    // Monta mensagem
-    let message = `Olá, gostaria de confirmar minha reserva\n\n`;
-    message += `Quarto: ${roomName}\n`;
-    message += `Características: ${beds}\n`;
-    message += `Diárias: ${days}\n`;
-    message += `Número de pessoas: ${people}\n`;
-    message += `Valor total: R$ ${total}\n`;
+  // Monta mensagem
+  let message = `Olá, gostaria de confirmar a disponibilidade do quarto:\n\n`;
+  message += `🏨 Quarto: ${roomName}\n`;
+  message += `🛏️ Camas: ${beds}\n`;
+  message += `🔒 Exclusivo: ${isExclusive}`;
 
-    // Codifica mensagem
-    const encodedMessage = encodeURIComponent(message);
+  const telefone = "5591982327122";  
+  const urlWhatsapp = `https://wa.me/${telefone}?text=${encodeURIComponent(message)}`;
 
-    // Número do WhatsApp
-    const phone = '5591982327122';
-
-    // Redireciona para WhatsApp
-    window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`, '_blank');
-}
-</script>
-
-<script>
-function changeValue(button, delta) {
-    const input = button.parentElement.querySelector('input');
-    let value = parseInt(input.value);
-    value += delta;
-    if (value < parseInt(input.min)) value = parseInt(input.min);
-    input.value = value;
-}
-</script>
-<script>
-function updateTotal(roomCard) {
-    // Preço por pessoa
-    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
-
-    // Diárias e pessoas
-    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
-    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
-
-    // Calcula total
-    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
-    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
-
-    // Mostra dentro do card
-    let totalEl = roomCard.querySelector('.total-price');
-    if (!totalEl) {
-        totalEl = document.createElement('div');
-        totalEl.classList.add('total-price');
-        roomCard.querySelector('.pricing').appendChild(totalEl);
-    }
-    totalEl.innerHTML = `<strong>Total: R$ ${total}</strong>`;
-}
-</script>
-<script>
-function changeValue(button, delta) {
-    const input = button.parentElement.querySelector('input');
-    let value = parseInt(input.value);
-    value += delta;
-    if (value < parseInt(input.min)) value = parseInt(input.min);
-    input.value = value;
-
-    // Atualizar total do card
-    const roomCard = button.closest('.room-card');
-    updateTotal(roomCard);
-}
-</script>
-<script>
-function reservar(button) {
-    const roomCard = button.closest('.room-card');
-
-    // Nome e características do quarto
-    const roomName = roomCard.querySelector('.room-title').innerText;
-    const beds = Array.from(roomCard.querySelectorAll('.feature-tag')).map(el => el.innerText).join(', ');
-
-    // Preço por pessoa
-    const pricePerPerson = roomCard.querySelector('.price-value').innerText;
-
-    // Diárias e número de pessoas
-    const days = parseInt(roomCard.querySelector('.input-days').value) || 1;
-    const people = parseInt(roomCard.querySelector('.input-people').value) || 1;
-
-    // Calcula valor total atualizado
-    const priceNumber = parseFloat(pricePerPerson.replace('R$ ', '').replace(',', '.'));
-    const total = (priceNumber * days * people).toFixed(2).replace('.', ',');
-
-    // Monta mensagem
-    let message = `Olá, gostaria de confirmar minha reserva\n\n`;
-    message += `Quarto: ${roomName}\n`;
-    message += `Características: ${beds}\n`;
-    message += `Diárias: ${days}\n`;
-    message += `Número de pessoas: ${people}\n`;
-    message += `Valor total: R$ ${total}\n`;
-
-    // Codifica mensagem
-    const encodedMessage = encodeURIComponent(message);
-
-    // Número do WhatsApp
-    const phone = '5591982327122';
-
-    // Redireciona para WhatsApp
-    window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodedMessage}`, '_blank');
+  window.location.href = urlWhatsapp; 
 }
 </script>
 <script>
@@ -1162,6 +1005,43 @@ function changeValue(button, delta) {
     const roomCard = button.closest('.room-card');
     updateTotal(roomCard);
 }
+</script>
+
+<script>
+    // Cria as folhas caindo
+function createFallingLeaves() {
+  const container = document.getElementById('falling-leaves');
+  const numberOfLeaves = 15; // quantidade de folhas
+
+  for (let i = 0; i < numberOfLeaves; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    
+    // posição horizontal aleatória dentro da hero
+    leaf.style.left = Math.random() * 100 + '%';
+    
+    // velocidade aleatória
+    const duration = Math.random() * 8 + 8; // entre 8s e 16s
+    leaf.style.animationDuration = duration + 's';
+    
+    // atraso aleatório para não cair tudo junto
+    const delay = Math.random() * 5;
+    leaf.style.animationDelay = delay + 's';
+    
+    // tamanho aleatório
+    const size = Math.random() * 10 + 15; // entre 15px e 25px
+    leaf.style.width = size + 'px';
+    leaf.style.height = size + 'px';
+    
+    container.appendChild(leaf);
+  }
+}
+
+// Inicializa quando a página carrega
+document.addEventListener('DOMContentLoaded', () => {
+  createFallingLeaves();
+});
+
 </script>
 
 
