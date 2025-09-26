@@ -290,6 +290,28 @@ a.es::before{
 .language:hover ul{
     display: block;
 }
+@media (max-width: 768px) {
+  .language ul {
+    display: none !important; /* força esconder no mobile */
+    position: static; /* evita problemas de posicionamento */
+    box-shadow: none;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .language:hover ul {
+    display: none; /* desativa hover no mobile */
+  }
+
+  /* Faz a linguagem ocupar 100% dentro do menu quando aberto */
+  .language {
+    width: 100%;
+  }
+
+  .language ul li a {
+    padding: var(--space-2) 0;
+  }
+}
 
 
         /* Hero Section - Minimal Amazonia Design */
@@ -2280,11 +2302,6 @@ a.es::before{
     width: 100%;               /* imagem não estica */
     height: auto;
   }
-}
-#google_translate_element select {
-  border-radius: 5px;
-  padding: 5px;
-  margin-left: 10px;
 }
 
 
