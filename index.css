@@ -225,8 +225,14 @@
 
         .hero img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: contain;
+}
+@media (max-width: 768px) {
+  .hero img {
+    display: none;
+  }
 }
 
 .hero-overlay {
@@ -290,16 +296,25 @@
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 8rem;
             font-weight: 600;
             margin-bottom: var(--space-4);
             line-height: 1.1;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #504e4e, #22211e, #1d1b1b, #333232);
+            background: linear-gradient(135deg, #000000, #000000, #000000, #000000);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        @media (max-width: 768px) {
+  .hero-title {
+    padding-top: 3rem; /* aumenta para compensar a navbar */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;      /* centraliza texto */
+  }
+}
+
 
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.25rem);
@@ -311,6 +326,14 @@
             font-weight: 300;
             line-height: 1.6;
         }
+        @media (max-width: 768px) {
+  .hero {
+    padding-top: 3rem; /* aumenta para compensar a navbar */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;      /* centraliza texto */
+  }
+}
 
         /* Minimal Search Bar */
         .minimal-search {
@@ -320,11 +343,12 @@
     padding: var(--space-3);
     backdrop-filter: blur(20px);
     max-width: 750px;
-    width: 120%;
-    margin: 0 auto var(--space-16);
+    width: 100%;
+    margin: 0 auto 4rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     color: #14532d;
-    transform: translateX(-10%);
+    transform: none;
+    z-index: 2;
         }
 
         .minimal-search-form {
@@ -372,7 +396,19 @@
             background: var(--primary-700);
             transform: translateY(-1px);
         }
+        @media (max-width: 768px) {
+  .minimal-search {
+    width: 100%;              /* ocupa só 90% da tela */
+    max-width: none;         /* remove limite de 750px */
+    transform: none;         /* centraliza */
+    margin: 1rem auto;       /* espaço seguro acima e abaixo */
+  }
 
+  .minimal-search-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;  /* menor altura */
+  }
+}
         /* Features Grid */
         .features-grid {
             display: grid;
@@ -2165,6 +2201,9 @@
     height: auto;
   }
 }
+
+
+
 
 
 
